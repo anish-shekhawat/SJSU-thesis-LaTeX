@@ -1,20 +1,67 @@
-\chapter{The Files}
+\chapter{Datasets\label{chap:datasets}}
 
-For this thesis
-format, you \LaTeX\ the file {\tt thesis.tex}. 
-But first, you
-need to make some modifications to {\tt thesis.tex}.
-The title of your report, committee members, etc.,
-are specified in {\tt thesis.tex}. All of the things that
-you need to modify are indicated by comments beginning with five consecutive asterisks, 
-so search for ``*****'' in {\tt thesis.tex} and make the necessary changes.
+One of the most important step of a machine learning design methodology is the collection of dataset that represents the problem we wish to solve. We used two popular and published network capture dataset that contains malware and benign traffic.
 
-You put the actual content of your report 
-in the following files:
 \begin{itemize}
-\item {\tt abs.tex} --- abstract
-\item {\tt ack.tex} --- acknowledgements
-\item {\tt chap1.tex}, {\tt chap2.tex}, and so on --- chapters
-\item {\tt bib.tex} --- references
-\item {\tt appA.tex}, {\tt appB.tex}, and so on --- appendices (if any)
+	\item CTU-13 Dataset \cite{GarciaGSZ14}
+	
+	The CTU-13 dataset is a set of 13 different malware traffic captures. This dataset include normal, malware and background traffic. We will only be using the normal and malware traffic which are stored in pcap files.
+	
+	\item Malware Capture Facility Project \cite{Erquiaga15}
+	
+	This research project is also carried out at Czech Technical University ATG Group to capture, analyze and publish long-lived real malware network traffic. The dataset was contributed by Maria Jose Erquiaga. The malware was executed with two restrictions: a bandwidth limit and spam interception. The most important characteristic of this project is the execution of malware during long periods of time, that can go up to several months. The traffic is stored in pcap files, labeled and made public for the research community
+	
+	\item Own Dataset
+	
+	We found plenty of malware traffic captures but very few benign traffic flows. Hence, we generated our own normal traffic by running WireShark on three different systems and capturing all the traffic.
 \end{itemize}
+
+\section{Data Structure}
+
+Each dataset contains a pcap file of the capture. Bro IDS \cite{Bro} is then used to generate various logs which describe the network flow information and other metadata. This information is then used to run various analytics on the captures. Bro generates many log files but we are mainly interested on the following three log files:
+
+\begin{enumerate}
+	\item conn.log : It contains information about TCP, UDP and ICMP connections.
+	\item ssl.log: It contains information about SSL certificates and sessions.
+	\item x509.log: It contains information about X.509 certificates.
+\end{enumerate}
+
+\section{Features}
+
+We extracted several features from the Bro logs generated using the network captures. The extracted features are shown in Table \ref{tab:1} and Table \ref{tab:2}. All the values in ssl.log are string and thus we do not consider features from ssl.log. But, ssl.log is used to aggregate x.509 certificates as it contains certificate IDs.
+
+\begin{table}[!htb]
+	\caption{Extracted Features from conn.log\label{tab:1}}
+	\begin{center}
+		\begin{tabular}{c|p{0.20\textwidth}|p{0.50\textwidth}}\hline\hline
+			S.No & Feature Name & \multicolumn{1}{l}{Description} \\ \hline
+			1 & id.orig\_h & Originating endpoint's IP address (AKA ORIG) \\
+			2 & id.orig\_p	& Originating endpoint's TCP/UDP port (or ICMP code) \\
+			3 & id.resp\_h	& Responding endpoint's IP address (AKA RESP) \\
+			4 & id.resp\_p	& Responding endpoint's TCP/UDP port (or ICMP code) \\
+			5 & duration & Connection duration \\
+			6 & orig\_bytes  & Originator payload bytes; from sequence numbers if TCP \\
+			7 & resp\_bytes & Responder payload bytes; from sequence numbers if TCP \\
+			8 & missed\_bytes & Number of missing bytes in content gaps \\
+			9 & orig\_pkts & Number of ORIG packets \\
+			10 & orig\_ip\_bytes & Number of ORIG IP bytes \\
+			11 & resp\_pkts & Number of RESP packets\\
+			12 & resp\_ip\_bytes & Number of RESP IP bytes \\ 
+			\hline\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[!htb]
+	\caption{Extracted Features from x509.log\label{tab:2}}
+	\begin{center}
+		\begin{tabular}{c|p{0.35\textwidth}|p{0.50\textwidth}}\hline\hline
+			S.No & Feature Name & \multicolumn{1}{l}{Description} \\ \hline
+			1 & certificate.version & Version number \\
+			2 & certificate.not\_valid\_before	& Timestamp before when certificate is not valid \\
+			3 & certificate.not\_valid\_after	& Timestamp after when certificate is not valid \\
+			4 & certificate.key\_length	& Key length in bits \\
+			\hline\hline
+		\end{tabular}
+	\end{center}
+\end{table}

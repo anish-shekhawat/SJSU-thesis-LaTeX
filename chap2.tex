@@ -1,70 +1,9 @@
-\chapter{Symbolic Cross-References\label{chap:blah}}
+\chapter{Related Work\label{chap:related}}
 
-This chapter has more information on symbolic cross-referencing.
-In addition, there are examples showing how to typeset a figure
-and a simple table.
+Traditional malicious traffic detection techniques rely on port based detection or deep packet inspection of network traffic payload and signature matching techniques. 
 
-\section{Figures}
+Etienne in \cite{Etienne} used deep packet inspection to detect malicious traffic. He inspected the packet contents and used traditional pattern matching or signature based detection to detect if the packet is malicious. He used Sort \cite{Snort}, an intrusion detection application, to detect malicious traffic using signature or string matching on the packet contents. Snort also hosts a popular Intrusion Protection System (IPS) rule set maintained by the community \cite{SnortCR}. But only around 1 \% of the rule set are TLS specific which shows that traditional pattern matching techniques are not used often for TLS based malware. The primary limitations of these methods are the invasion of user privacy and the huge overhead of decrypting and analyzing each packet.
 
-Figure~\ref{fig:encrypted_virus} has been typeset so that it
-occupies half the width of text on a page ({\tt width=0.5}). Note the 
-symbolic cross-reference, that is, you simple \verb+\ref{fig:encrypted_virus}+
-to obtain the appropriate number for Figure~\ref{fig:encrypted_virus}.
+Tegeler \etal in \cite{TegelerFVK12} presented BotFinder, a network-flow information based system to detect bot infections. The system uses a sequence of chronologically-ordered flow called traces to find irregularities in the network behavior between two endpoints. This along with other network metadata such as average time interval, averaged duration, average number of source and destination bytes, etc. were used as features in a local shrinking based clustering algorithm \cite{WangQZ07}. Anderson and McGrew in \cite{AndersonM17} proposed a new technique that analyzed network flow metadata and applied supervised machine learning algorithms to identify encrypted malware traffic. They used a demilitarized zone (DMZ), to collect and train the machine learning algorithm on the benign network traffic. DMZ is a sub-network that separates the externally connected services from internal systems. Externally connected services are those which connect to the internet to provide various services. As it was based on supervised learning models, it provided results which can be easily interpreted \cite{SommerP10}. The machine learning model helped in high-speed processing of the network traffic and real-time predictions. It also leveraged regularization, an important part of training, to select features that are most discriminatory \cite{HastieTF09}. Since the DMZ segregates such services and is used only in business organizations, the network traffic data collected by them is not an actual representation of the general network traffic. Since this data represents only enterprise users, i.e. those who work in business organizations, the results may not hold for general internet users such as students or home users.
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.5\textwidth]{images/encrypted_virus.jpg}
-\caption{Encrypted virus before and after decryption.} 
-\label{fig:encrypted_virus}
-\end{figure}
-
-If you move things around, insert or delete text, Figure~\ref{fig:encrypted_virus}
-will still give you the correct number. This is a very handy feature.
-
-
-\section{Tables}
-
-Table~\ref{tab:19} 
-shows some interesting stuff. I hope you enjoy it.
-
-\begin{table}[htb]
-\caption{MysteryTwister Zodiac Challenge\label{tab:19}}
-\begin{center}
-\begin{tabular}{c|lc}\hline\hline
-Case & \multicolumn{1}{c}{Description} & Percentage\\ \hline
-1F & Fast outer hill climb and English stats & 13.00\% \\
-1S & Slow outer hill climb and English stats & \phantom{0}4.00\% \\
-2F & Fast outer hill climb and Zodiac~408 stats & 70.00\% \\
-2S & Slow outer hill climb and Zodiac~408 stats & 84.00\% \\ \hline\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-
-\section{Citations}
-
-References are cited using the \verb+\cite+ command. For example,
-see~\cite{harden} for information on the Zodiac killer. You can include more than one 
-reference in a single citation, like this~\cite{harden,bib1,basa,bib3,bib2,glurk,bib7,bib10,bib11}
-or this~\cite{bibAC,bib17}.
-
-
-\section{The Last Word}
-
-There are a lot of other uses for symbolic cross-referencing. For example, this chapter
-title has a label so I can refer to Chapter~\ref{chap:blah} (as I just did).
-My recommendation is that you include a label with anything and everything that 
-is numbered. If it has a number, there is a good chance that you will
-refer to it at some point.
-
-Finally, note that you need to \LaTeX\ a file at least twice (three times to
-be safe) without changing anything to be sure that the numbering is correct.
-Why is that? Good question.
-When you \LaTeX\ your document, various auxiliary files are created. Most of these files contain
-information related to cross-references that appear in your {\tt .tex} file (or files). The next time you 
-\LaTeX\ your document, the information from the previous run is read from
-these auxiliary files. Consequently, after making changes to any {\tt .tex}
-file, you will need to \LaTeX\ your document at least twice to be sure that the
-cross-reference information is updated in the resulting pdf. In fact, you should
-run \LaTeX\ three consecutive times to be certain that cross-references are correct.
-
+This report further explores the use of network flow information as features which can be used to train machine learning algorithms. These features are obtained without decrypting any packets in the flow.

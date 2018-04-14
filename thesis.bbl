@@ -1,0 +1,144 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{#1}
+\addcustomcontentsline
+\csname url@rmstyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand\BIBentrySTDinterwordspacing{\spaceskip=0pt\relax}
+\providecommand\BIBentryALTinterwordstretchfactor{4}
+\providecommand\BIBentryALTinterwordspacing{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand\BIBforeignlanguage[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+
+\bibitem{Malwarebytes17}
+\BIBentryALTinterwordspacing
+Malwarebytes. ``Analysis of malware trends for small and medium businesses,
+  q1-2017.'' March 2017. [Online]. Available:
+  \url{https://www.malwarebytes.com/pdf/white-
+  papers/MalwareTrendsForSMBQ12017.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{SenSW04}
+\BIBentryALTinterwordspacing
+S.~Sen, O.~Spatscheck, and D.~Wang, ``Accurate, scalable in-network
+  identification of p2p traffic using application signatures,'' in
+  \emph{Proceedings of the 13th international conference on World Wide Web,
+  {WWW} 2004, New York, NY, USA, May 17-20, 2004}, S.~I. Feldman, M.~Uretsky,
+  M.~Najork, and C.~E. Wills, Eds.\hskip 1em plus 0.5em minus 0.4em\relax
+  {ACM}, 2004, pp. 512--521. [Online]. Available:
+  \url{http://doi.acm.org/10.1145/988672.988742}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Google17}
+\BIBentryALTinterwordspacing
+Google. ``Https encryption on the web.'' March 2017. [Online]. Available:
+  \url{https://transparencyreport.google.com/https/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Anderson16}
+\BIBentryALTinterwordspacing
+B.~Anderson. CISCO Blogs. ``Hiding in plain sight: Malware’s use of tls and
+  encryption.'' 2016. [Online]. Available:
+  \url{https://blogs.cisco.com/security/malwares-use-of-tls- and-encryption}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Radware17}
+\BIBentryALTinterwordspacing
+Radware. ``Global application and network security report 2016-17.'' 2017.
+  [Online]. Available:
+  \url{https://www.radware.com/PleaseRegister.aspx?returnUrl=644245912}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Etienne}
+\BIBentryALTinterwordspacing
+L.~Etienne. ``Malicious traffic detection in local networks with snort.'' 2009.
+  [Online]. Available:
+  \url{https://infoscience.epfl.ch/record/141022/files/pdm.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Snort}
+\BIBentryALTinterwordspacing
+Snort. [Online]. Available:
+  \url{https://www.snort.org/documents#OfficialDocumentation}
+\BIBentrySTDinterwordspacing
+
+\bibitem{SnortCR}
+\BIBentryALTinterwordspacing
+``Snort: Community rules.'' 2016. [Online]. Available:
+  \url{https://www.snort.org/downloads/community/ community-rules.tar.gz}
+\BIBentrySTDinterwordspacing
+
+\bibitem{TegelerFVK12}
+\BIBentryALTinterwordspacing
+F.~Tegeler, X.~Fu, G.~Vigna, and C.~Kruegel, ``Botfinder: finding bots in
+  network traffic without deep packet inspection,'' in \emph{Conference on
+  emerging Networking Experiments and Technologies, CoNEXT '12, Nice, France -
+  December 10 - 13, 2012}, C.~Barakat, R.~Teixeira, K.~K. Ramakrishnan, and
+  P.~Thiran, Eds.\hskip 1em plus 0.5em minus 0.4em\relax {ACM}, 2012, pp.
+  349--360. [Online]. Available:
+  \url{http://doi.acm.org/10.1145/2413176.2413217}
+\BIBentrySTDinterwordspacing
+
+\bibitem{WangQZ07}
+\BIBentryALTinterwordspacing
+X.~Wang, W.~Qiu, and R.~H. Zamar, ``{CLUES:} {A} non-parametric clustering
+  method based on local shrinking,'' \emph{Computational Statistics {\&} Data
+  Analysis}, vol.~52, no.~1, pp. 286--298, 2007. [Online]. Available:
+  \url{https://doi.org/10.1016/j.csda.2006.12.016}
+\BIBentrySTDinterwordspacing
+
+\bibitem{AndersonM17}
+\BIBentryALTinterwordspacing
+B.~Anderson and D.~A. McGrew, ``Machine learning for encrypted malware traffic
+  classification: Accounting for noisy labels and non-stationarity,'' in
+  \emph{Proceedings of the 23rd {ACM} {SIGKDD} International Conference on
+  Knowledge Discovery and Data Mining, Halifax, NS, Canada, August 13 - 17,
+  2017}.\hskip 1em plus 0.5em minus 0.4em\relax {ACM}, 2017, pp. 1723--1732.
+  [Online]. Available: \url{http://doi.acm.org/10.1145/3097983.3098163}
+\BIBentrySTDinterwordspacing
+
+\bibitem{SommerP10}
+\BIBentryALTinterwordspacing
+R.~Sommer and V.~Paxson, ``Outside the closed world: On using machine learning
+  for network intrusion detection,'' in \emph{31st {IEEE} Symposium on Security
+  and Privacy, S{\&}P 2010, 16-19 May 2010, Berleley/Oakland, California,
+  {USA}}.\hskip 1em plus 0.5em minus 0.4em\relax {IEEE} Computer Society, 2010,
+  pp. 305--316. [Online]. Available: \url{https://doi.org/10.1109/SP.2010.25}
+\BIBentrySTDinterwordspacing
+
+\bibitem{HastieTF09}
+\BIBentryALTinterwordspacing
+T.~Hastie, R.~Tibshirani, and J.~H. Friedman, \emph{The elements of statistical
+  learning: data mining, inference, and prediction, 2nd Edition}, ser. Springer
+  series in statistics.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2009.
+  [Online]. Available: \url{http://www.worldcat.org/oclc/300478243}
+\BIBentrySTDinterwordspacing
+
+\bibitem{GarciaGSZ14}
+\BIBentryALTinterwordspacing
+S.~Garc{\'{\i}}a, M.~Grill, J.~Stiborek, and A.~Zunino, ``An empirical
+  comparison of botnet detection methods,'' \emph{Computers {\&} Security},
+  vol.~45, pp. 100--123, 2014. [Online]. Available:
+  \url{https://doi.org/10.1016/j.cose.2014.05.011}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Erquiaga15}
+M.~J. Erquiaga and S.~Garcia, ``Malware capture facility project,'' CVUT
+  University, 2013.
+
+\bibitem{Bro}
+\BIBentryALTinterwordspacing
+``Bro network security monitor.'' [Online]. Available:
+  \url{https://www.bro.org}
+\BIBentrySTDinterwordspacing
+
+\end{thebibliography}
