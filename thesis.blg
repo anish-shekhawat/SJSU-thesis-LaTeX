@@ -13,7 +13,7 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references.bib
 Warning--entry type for "Frantisek2017" isn't style-file defined
---line 431 of file references.bib
+--line 465 of file references.bib
  
 -- University of Rhode Island references, version 1.1 (2005/07/12),
 --  based on IEEEtran.bst version 1.11 (2003/04/02) by Michael Shell.
@@ -24,45 +24,45 @@ Warning--empty title in Snort
 Warning--there's a month but no year in Frantisek2017
 
 Done.
-You've used 19 entries,
+You've used 23 entries,
             3985 wiz_defined-function locations,
-            945 strings with 11529 characters,
-and the built_in function-call counts, 11949 in all, are:
-= -- 935
-> -- 260
-< -- 73
-+ -- 136
-- -- 46
-* -- 568
-:= -- 1952
-add.period$ -- 54
-call.type$ -- 19
-change.case$ -- 23
-chr.to.int$ -- 183
-cite$ -- 21
-duplicate$ -- 848
-empty$ -- 1020
-format.name$ -- 59
-if$ -- 2660
+            971 strings with 12121 characters,
+and the built_in function-call counts, 13834 in all, are:
+= -- 1080
+> -- 283
+< -- 83
++ -- 150
+- -- 49
+* -- 652
+:= -- 2268
+add.period$ -- 63
+call.type$ -- 23
+change.case$ -- 27
+chr.to.int$ -- 207
+cite$ -- 25
+duplicate$ -- 998
+empty$ -- 1201
+format.name$ -- 63
+if$ -- 3079
 int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 170
-newline$ -- 114
-num.names$ -- 23
-pop$ -- 454
+int.to.str$ -- 23
+missing$ -- 198
+newline$ -- 134
+num.names$ -- 25
+pop$ -- 536
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 903
+skip$ -- 1050
 stack$ -- 0
-substring$ -- 443
-swap$ -- 640
-text.length$ -- 12
+substring$ -- 503
+swap$ -- 736
+text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 8
 type$ -- 0
 warning$ -- 2
-while$ -- 52
-width$ -- 21
-write$ -- 228
+while$ -- 58
+width$ -- 25
+write$ -- 268
 (There were 3 warnings)

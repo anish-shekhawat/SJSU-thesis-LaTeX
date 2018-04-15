@@ -164,4 +164,31 @@ B.~Anderson and D.~A. McGrew, ``Identifying encrypted malware traffic with
   \url{http://doi.acm.org/10.1145/2996758.2996768}
 \BIBentrySTDinterwordspacing
 
+\bibitem{ML}
+\BIBentryALTinterwordspacing
+``Machine learning.'' [Online]. Available:
+  \url{https://en.wikipedia.org/wiki/Machine_learning}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Tin95}
+\BIBentryALTinterwordspacing
+T.~K. Ho, ``Random decision forests,'' in \emph{Third International Conference
+  on Document Analysis and Recognition, {ICDAR} 1995, August 14 - 15, 1995,
+  Montreal, Canada. Volume {I}}.\hskip 1em plus 0.5em minus 0.4em\relax {IEEE}
+  Computer Society, 1995, pp. 278--282. [Online]. Available:
+  \url{https://doi.org/10.1109/ICDAR.1995.598994}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ChenG16}
+\BIBentryALTinterwordspacing
+T.~Chen and C.~Guestrin, ``Xgboost: {A} scalable tree boosting system,''
+  \emph{CoRR}, vol. abs/1603.02754, 2016. [Online]. Available:
+  \url{http://arxiv.org/abs/1603.02754}
+\BIBentrySTDinterwordspacing
+
+\bibitem{XGBWiki}
+\BIBentryALTinterwordspacing
+``Xgboost.'' [Online]. Available: \url{https://en.wikipedia.org/wiki/Xgboost}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}
