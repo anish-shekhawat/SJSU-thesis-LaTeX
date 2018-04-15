@@ -141,4 +141,27 @@ M.~J. Erquiaga and S.~Garcia, ``Malware capture facility project,'' CVUT
   \url{https://www.bro.org}
 \BIBentrySTDinterwordspacing
 
+\bibitem{RFC1601}
+\BIBentryALTinterwordspacing
+A.~O. Freier, P.~Karlton, and P.~C. Kocher, ``The secure sockets layer {(SSL)}
+  protocol version 3.0,'' \emph{{RFC}}, vol. 6101, pp. 1--67, 2011. [Online].
+  Available: \url{https://doi.org/10.17487/RFC6101}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Frantisek2017}
+\BIBentryALTinterwordspacing
+F.~Strasak, ``Detection of https malware traffic,'' May. [Online]. Available:
+  \url{https://dspace.cvut.cz/bitstream/handle/10467/68528/F3-BP-2017-Strasak-Frantisek-strasak_thesis_2017.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{AndersonM16}
+\BIBentryALTinterwordspacing
+B.~Anderson and D.~A. McGrew, ``Identifying encrypted malware traffic with
+  contextual flow data,'' in \emph{Proceedings of the 2016 {ACM} Workshop on
+  Artificial Intelligence and Security, AISec@CCS 2016, Vienna, Austria,
+  October 28, 2016}, D.~M. Freeman, A.~Mitrokotsa, and A.~Sinha, Eds.\hskip 1em
+  plus 0.5em minus 0.4em\relax {ACM}, 2016, pp. 35--46. [Online]. Available:
+  \url{http://doi.acm.org/10.1145/2996758.2996768}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}
