@@ -1,0 +1,11 @@
+\chapter{Conclusion and Future Work\label{chap:conclusion}}
+
+\section{Conclusion}
+
+The objective of this research was to detect malicious encrypted network traffic without decryption. The highest accuracy we achieved was $99.15$\% with XGBoost which seems good enough for our imbalanced dataset. We also achieved a high accuracy using only top six or top 10 features from Table \ref{tab:5}. Thus, we can conclude that encrypted malware network traffic is distinct from the normal traffic and can be used to successfully identify an infected host.
+
+With an increase in worldwide adoption of HTTPS and encryption and advancement in malware detection techniques, we will see an increase in the number of malware using HTTPS and encryption to evade detection and hide their malicious activity. It is worrying because encryption interferes with the traditional detection techniques. Identifying such threats in a way that is feasible, fast and do not compromise user security is an important problem. Machine learning methods have been proven to overcome traditional limitations and can be used to train models on malware network traffic data. These models can then be used to detect similar malicious network traffic and flag a system for malware infection. Further, the system can be isolated to prevent further propagation of malware on the internal network.
+
+\section{Future Work}
+
+There is lot of scope to further improve the accuracy in future work. The next step would be to collect more data for training and testing the models and find additional features that could be useful in classification. We could also try tools other than Bro to extract novel features and use them to try additional machine learning algorithms. 
