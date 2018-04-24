@@ -4,55 +4,11 @@ This chapter discusses the various experiments conducted on the dataset and thei
 
 \section{Training Experiments}
 
-As mentioned in Chapter \ref{chap:dataset}, we don't have a balanced dataset. The number of malware samples are much greater than the benign samples. Due to this, we use cross-validation technique to train and test our machine learning models on our imbalanced dataset.
-
-\subsection{Cross-Validation}
-
-Cross-validation is a technique to evaluate how machine learning models perform on the given dataset. It is mainly used in situations such as ours where there is not enough data to divide the dataset into separate training and testing sets. Cross validation can be divided into two types:
-
-\begin{itemize}
-	\item Exhaustive cross-validation:
-	In this cross-validation method we learn and test on all possible combinations of the training and testing dataset.
-	\begin{itemize}
-		\item Leave-\emph{p}-out:
-		Leave-\emph{p}-out is a type of exhaustive cross-validation where we use \emph{p} sets as validation set and the remaining are used as training set.
-	\end{itemize}
-	\item Non-exhaustive cross-validation:
-	In this cross-validation method we do not compute all possible combinations of the training and testing dataset.
-	\begin{itemize}
-		\item Holdout method:
-		This is the simplest cross-validation method where the dataset is separated into two sets, the training and testing set.
-		\item \emph{k}-fold cross-validation:
-		In this cross-validation method we divide the dataset into \emph{k} subsets and then the model is iteratively tested on one set and trained on the remaining set.
-	\end{itemize}
-\end{itemize}
-
-We use 10-fold cross-validation in all our experiments. As shown in Figure \ref{fig:10-fold}, our dataset is divided into ten subsets and the model is then iteratively trained on nine subsets and tested on one subset.
-
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.7\textwidth]{images/k-fold.png}
-	\caption{10-fold cross-validation. The red rectangle is the testing set and the other subsets are used for training.} 
-	\label{fig:10-fold}
-\end{figure}
-
-\section{Evaluation Metrics}
-
-We use \emph{accuracy} as our evaluation method for all the experiments. \emph{Accuracy} is used to measure how well the model could detect malicious network traffic among the dataset. \emph{Accuracy} can be defined as:
-$$
-Accuracy = \dfrac{TP + TN}{ TP + TN + FP + FN}
-$$
-\emph{where},
-\begin{align*}
-	TP: True\;Positives \\
-	TN: True\;Negatives\\
-	FP: False\;Positives\\
-	FN: False\;Negatives\\
-\end{align*}
+As mentioned in Chapter~\ref{chap:dataset}, we don't have a balanced dataset. The number of malware samples are much greater than the benign samples. Due to this, we use cross-validation technique to train and test our machine learning models on our imbalanced dataset.
 
 \section{Data Analysis}
 
-As we can see from Figure \ref{fig:orig-port-freq}, in the initial data analysis, we found that the most frequent ports in malware captures are different than the most frequent ports in benign captures. We can see a similar result in Figure \ref{fig:resp-port-freq} where we plot the frequency of ports used by the responding endpoint in the network traffic capture. The top 5 ports with most frequency in both the captures are shown in Table \ref{tab:3}.
+As seen in Figure~\ref{fig:orig-port-freq}, initial data analysis reveals that the most frequent ports in malware captures are different than the most frequent ports in the benign captures. Similar result can be seen in Figure~\ref{fig:resp-port-freq} which is a plot of the port number frequencies used by the responding endpoint in the network traffic capture. The top 5 ports with the highest frequency in both the captures are shown in Table~\ref{tab:5} and Table~\ref{tab:6}.
 
 \begin{figure}[htb]
 	\centering
@@ -69,7 +25,7 @@ As we can see from Figure \ref{fig:orig-port-freq}, in the initial data analysis
 \end{figure}
 
 \begin{table}[!htb]
-	\caption{Top Five Ports Used by ORIG\label{tab:3}}
+	\caption{Top Five Ports Used by ORIG\label{tab:5}}
 	\begin{center}
 		\begin{tabular}{c|p{0.15\textwidth}|p{0.50\textwidth}}\hline\hline
 			Dataset & Port Number & \multicolumn{1}{l}{Known Port Assignments} \\ \hline
@@ -89,7 +45,7 @@ As we can see from Figure \ref{fig:orig-port-freq}, in the initial data analysis
 \end{table}
 
 \begin{table}[!htb]
-	\caption{Top Five Ports Used by RESP\label{tab:4}}
+	\caption{Top Five Ports Used by RESP\label{tab:6}}
 	\begin{center}
 		\begin{tabular}{c|p{0.15\textwidth}|p{0.50\textwidth}}\hline\hline
 			Dataset & Port Number & \multicolumn{1}{l}{Known Port Assignments} \\ \hline
@@ -108,11 +64,13 @@ As we can see from Figure \ref{fig:orig-port-freq}, in the initial data analysis
 	\end{center}
 \end{table}
 
-As we can see from Table \ref{tab:3} and Table \ref{tab:4}, malware dataset had Internet Relay Chat (IRC) port among the most frequently used. We know that most of the malware use IRC to exfiltrate data from the infected system to other systems. We also see that HTTPS port 443 is also among the most frequently used in the malware captures.
+As we can see from Table~\ref{tab:5} and Table~\ref{tab:6}, malware dataset had Internet Relay Chat (IRC) port among the most frequently used. We know that most of the malware use IRC to exfiltrate data from the infected system to other systems. We also see that HTTPS port 443 is also among the most frequently used in the malware captures.
+
+\pagebreak
 
 \section{K-means Clustering}
 
-K-means clustering is an unsupervised learning algorithm that aims to partition \verb|n| data points into \verb|k| clusters. Clustering is used to see whether the data points naturally form distinct clusters or whether they are similar to other data points in the dataset. We normalized the values in our dataset and performed K-means clustering with \verb|k=2|. The results are shown in the following figures:
+K-means clustering is an unsupervised learning algorithm that aims to partition \verb|n| data points into \verb|k| clusters. Clustering is used to see whether the data points naturally form distinct clusters or whether they are similar to other data points in the dataset. We normalized the values in our dataset and performed K-means clustering with \verb|k=2|. The results are shown in Figure~\ref{fig:kmeans1} and Figure~\ref{fig:kmeans2} below.
 
 \begin{figure}[htb]
 	\centering
@@ -126,17 +84,17 @@ K-means clustering is an unsupervised learning algorithm that aims to partition 
 	\label{fig:kmeans2}
 \end{figure}
 
-As seen in Figure \ref{fig:kmeans1}, K-means didn't really give us distinct clusters. Also , the most of the scatter plots based on connection features resemble that in Figure \ref{fig:kmeans2}. We can further perform experiments such as Support Vector Machine (SVM) to find prominent features in the dataset.
+As seen in Figure~\ref{fig:kmeans1}, K-means didn't really give us distinct clusters. Also , most of the scatter plots based on connection features resemble that in Figure~\ref{fig:kmeans2}. We further perform experiments using Support Vector Machine (SVM) and univariate feature analysis to find prominent features in the dataset.
 
 \clearpage
 
 \section{Experiments}
 
-We performed multiple experiments using different machine learning techniques.
+This section states multiple experiments conducted using various machine learning techniques and discusses the results. 
 
 \subsection{Experiment 1}
 
-In this experiment we ran SVM with linear kernel with 10-fold cross validation on our dataset and achieved an average \emph{Accuracy rate} of $92.07$\% as shown in Figure \ref{fig:result_svm}.
+In this experiment we ran SVM with linear kernel and 10-fold cross validation on our dataset and achieved an average accuracy rate of $92.07$\% as shown in Figure~\ref{fig:result_svm}.
 
 \begin{figure}[htb]
 	\centering
@@ -145,17 +103,17 @@ In this experiment we ran SVM with linear kernel with 10-fold cross validation o
 	\label{fig:result_svm}
 \end{figure}
 
-SVM also assigns weights to the input features which gave us an insight into the features SVM believes are important. In Figure \ref{fig:result_svm_weights}, we can see that SVM assigned the highest weight to feature number 16. The rank assigned to each feature can be seen in Table \ref{tab:5}. We can see that average certificate length, periodicity and average public key length are the top most features. Also from \cite{AndersonM16} we know that malware use weak encryption techniques such as shorter key lengths and are more periodic in nature than other applications. Also, the validity of certificate during capture is the sixth highest rank feature which tell us that most of malware may not have a valid certificate.
+SVM also assigns weights to the input features which provided an insight into the features SVM believes are important. In Figure~\ref{fig:result_svm_weights}, we can see that SVM assigned the highest weight to feature number 16 which is the average certificate length. Table~\ref{tab:7} provides us the rank assigned to each feature by SVM. We can see that average certificate length, periodicity and average public key length are the top most features. Also from~\cite{AndersonM16} we know that malware use weak encryption techniques such as shorter key lengths and are more periodic in nature than other applications. Also, the validity of certificate during capture is the sixth highest rank feature which tell us that most of malware may not have a valid certificate.
 
  \begin{figure}[htb]
  	\centering
- 	\includegraphics[width=0.7\textwidth]{images/svm_weights.png}
- 	\caption{SVM assigned weights to the features} 
+ 	\includegraphics[width=1\textwidth]{images/svm_weights.png}
+ 	\caption{Weights assigned to features by SVM} 
  	\label{fig:result_svm_weights}
  \end{figure}
 
 \begin{table}[!htb]
-	\caption{Feature Ranks by SVM (Highest Ranked First) \label{tab:5}}
+	\caption{Feature ranks by SVM \label{tab:7}}
 	\begin{center}
 		\begin{tabular}{c|p{0.50\textwidth}}\hline\hline
 			Rank & Feature  \\ \hline
@@ -208,7 +166,7 @@ SVM also assigns weights to the input features which gave us an insight into the
 
 \subsection{Experiment 2}
 
-After getting the feature ranks from SVM, we also performed Univariate Feature Elimination (UFE) to see if the feature ranks provided by SVM matches that of UFE. We ran UFE with 10-fold cross-validation and plot the ranks along with SVM ranks. As seen in Figure \ref{fig:result_ufe_svm}, the weight rankings of UFE is almost similar to that of SVM.
+After getting the feature ranks from SVM, we also performed univariate feature elimination (UFE) to see if the feature ranks provided by SVM matches that of UFE. We ran UFE with 10-fold cross-validation and plot the ranks along with SVM ranks. As seen in Figure~\ref{fig:result_ufe_svm}, the weight rankings of UFE is almost similar to that of SVM.
 
 \begin{figure}[htb]
 	\centering
@@ -221,6 +179,8 @@ After getting the feature ranks from SVM, we also performed Univariate Feature E
 
 After confirming the SVM feature ranks with that of UFE, we used Recursive Feature Elimination (RFE) with SVM and 10-fold cross-validation to remove weak features and calculate the accuracy. RFE iteratively eliminates one feature at a time and calculates the accuracy until just one feature remains.
 
+As we can see from Figure~\ref{fig:result_rfe}, we get within a $2$\% of the best result with just 6 features and within $1$\% with 10 features out of 41. It shows that the top 6 features in Table~\ref{tab:5} contribute the most to the accuracy of the model.
+
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=1\textwidth]{images/rfe_svm.png}
@@ -228,7 +188,6 @@ After confirming the SVM feature ranks with that of UFE, we used Recursive Featu
 	\label{fig:result_rfe}
 \end{figure}
 
-As we can see from Figure \ref{fig:result_rfe}, we get within a $2$\% of the best result with just 6 features and within $1$\% with 10 features out of 41. It shows that the top 6 features in Table \ref{tab:5} contribute the most to the accuracy of the model.
 
 \subsection{Experiment 4}
 
@@ -241,7 +200,7 @@ In this experiment we ran Random Forest Classifier with Recursive Feature Elimin
 	\label{fig:result_rf_rfe}
 \end{figure}
 
-The first observation from Figure \ref{fig:result_rf_rfe} is that Random Forest gives us a much higher accuracy than SVM. It also supports the SVM result that the top 6 features contribute the most to the accuracy and the remaining features can be eliminated.
+The first observation from Figure~\ref{fig:result_rf_rfe} is that Random Forest gives us a much higher accuracy than SVM. It also supports the SVM result that the top 6 features contribute the most to the accuracy and the remaining features can be eliminated.
 
 \subsection{Experiment 5}
 
@@ -250,8 +209,29 @@ In this experiment we ran XGBoost classifier with 10-fold cross validation and c
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=1\textwidth]{images/svm_rf_xgb.png}
-	\caption{Recursive Feature Elimination with Random Forest} 
+	\caption{Performance comparison of the three machine learning algorithms} 
 	\label{fig:result_svm_rf_xgb}
 \end{figure}
 
 We can see that XGBoost gives us the highest accuracy of $99.15$\% followed by Random Forest which gives us an accuracy of $98.78$. Thus, we can say that ensemble techniques such as XGBoost and Random Forest performs the best on the given dataset and can be used to identify malicious encrypted traffic.
+
+\pagebreak
+
+\section{Discussion}
+
+As seen in Figure~\ref{fig:ml_comparison}, XGBoost performs better than other algorithms. We get an area under the curve (AUC) value of 0.9988 for XGBoost, whereas SVM and Random Forest achieve an AUC of 0.9122 and 0.998 respectively. Thus the highest accuracy gained in our approach is 99.88\% which is the same as that achieved by Anderson and McGrew in~\cite{AndersonM17}. We achieved a constant higher accuracy for different malware samples than the other related work mentioned in Chapter~\ref{chap:related}~\cite{TegelerFVK12,PrasseMPHS17,LokocKCSP16}. As seen in Figure~\ref{fig:heatmap}, length of the encryption key, certificate length, TLS version and certificate validity are highly correlated with other features and are also the most prominent features selected by both SVM and UFE in the above experiments. This result is also supported by research carried out by Anderson and McGrew in~\cite{AndersonPM16}. In Figure~\ref{fig:heatmap}, we can also see that the corresponding columns for certificate path error, missing certificate in certificate path and SNI equal to destination IP features are missing. This is because these three features remain constant through out our dataset and as such has no affect on our classification models. Hence, these features can be removed from consideration in further research.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1\textwidth]{images/ml_comparison.png}
+	\caption{Comparison of various machine learning algorithms} 
+	\label{fig:ml_comparison}
+\end{figure}
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=1.2\textwidth]{images/heatmap.png}
+	\caption{Feature correlation heat map} 
+	\label{fig:heatmap}
+\end{figure}
+

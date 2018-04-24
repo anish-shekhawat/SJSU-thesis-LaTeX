@@ -19,6 +19,13 @@
 \fi
 #2}}
 
+\bibitem{Aycock06}
+\BIBentryALTinterwordspacing
+J.~Aycock, \emph{Computer Viruses and Malware}, ser. Advances in Information
+  Security.\hskip 1em plus 0.5em minus 0.4em\relax Springer, 2006, vol.~22.
+  [Online]. Available: \url{https://doi.org/10.1007/0-387-34188-9}
+\BIBentrySTDinterwordspacing
+
 \bibitem{Malwarebytes17}
 \BIBentryALTinterwordspacing
 Malwarebytes. ``Analysis of malware trends for small and medium businesses,
@@ -270,6 +277,12 @@ T.~K. Ho, ``Random decision forests,'' in \emph{Third International Conference
   \url{https://doi.org/10.1109/ICDAR.1995.598994}
 \BIBentrySTDinterwordspacing
 
+\bibitem{RandomForest}
+\BIBentryALTinterwordspacing
+B.~Holczer. ``Random forest classifier machine learning.'' [Online]. Available:
+  \url{http://www.globalsoftwaresupport.com/random-forest-classifier-bagging-machine-learning/}
+\BIBentrySTDinterwordspacing
+
 \bibitem{ChenG16}
 \BIBentryALTinterwordspacing
 T.~Chen and C.~Guestrin, ``Xgboost: {A} scalable tree boosting system,''
@@ -280,6 +293,19 @@ T.~Chen and C.~Guestrin, ``Xgboost: {A} scalable tree boosting system,''
 \bibitem{XGBWiki}
 \BIBentryALTinterwordspacing
 ``Xgboost.'' [Online]. Available: \url{https://en.wikipedia.org/wiki/Xgboost}
+\BIBentrySTDinterwordspacing
+
+\bibitem{AndersonPM16}
+\BIBentryALTinterwordspacing
+B.~Anderson, S.~Paul, and D.~A. McGrew, ``Deciphering malware's use of {TLS}
+  (without decryption),'' \emph{CoRR}, vol. abs/1607.01639, 2016. [Online].
+  Available: \url{http://arxiv.org/abs/1607.01639}
+\BIBentrySTDinterwordspacing
+
+\bibitem{VirusTotal}
+\BIBentryALTinterwordspacing
+VirusTotal. ``Virustotal - free online virus, malware and url scanner.''
+  [Online]. Available: \url{https://www.virustotal.com}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}

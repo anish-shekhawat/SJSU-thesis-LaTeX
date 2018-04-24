@@ -3,17 +3,15 @@
 One of the most important step of a machine learning design methodology is the collection of dataset that represents the problem we wish to solve. We used two popular and published network capture dataset that contains malware and benign traffic.
 
 \begin{itemize}
-	\item CTU-13 Dataset \cite{GarciaGSZ14}
+	\item CTU-13 Dataset~\cite{GarciaGSZ14}
 	
 	The CTU-13 dataset was captured in the Czech Technical University, Czech Republic. It is a set of 13 different malware traffic captures which includes normal, malware and background traffic. Each malware traffic was captured by executing the malware in a Windows virtual machine and recording the network traffic on that host. The normal traffic corresponds to network traffic which was captured on normal hosts, i.e. hosts which weren't infected with malware. We will only be using only normal and malware traffic which are stored in pcap files. 
 	
-	\item Malware Capture Facility Project \cite{Erquiaga15}
+	\item Malware Capture Facility Project~\cite{Erquiaga15}
 	
 	This research project is also carried out at Czech Technical University ATG Group to capture, analyze and publish long-lived real malware network traffic. The dataset was contributed by Maria Jose Erquiaga. The malware was executed with two restrictions: a bandwidth limit and spam interception. The most important characteristic of this project is the execution of malware during long periods of time, that can go up to several months. The traffic is stored in pcap files, labeled and made public for the research community
 	
 \end{itemize}
-
-The entire dataset consists of total 72 captures out which 59 are malware captures and 13 are benign captures. Table \ref{tab:1} gives us basic statistics about our dataset.
 
 \begin{table}[!htb]
 	\caption{Dataset Statistics\label{tab:1}}
@@ -30,9 +28,11 @@ The entire dataset consists of total 72 captures out which 59 are malware captur
 	\end{center}
 \end{table}
 
+The entire dataset consists of total 72 captures out which 59 are malware captures and 13 are benign captures. Table~\ref{tab:1} gives us basic statistics about our dataset.
+
 \section{Data Structure}
 
-Each dataset contains a pcap file of the capture, list of infected and normal hosts and Bro IDS logs generated using the pcap files. Bro \cite{Bro} is a powerful open-source network analysis and intrusion detection tool. It supports various network analysis features traffic inspection, log recording, attack detection, etc. We use Bro to generate various network traffic logs which describe the network flow information and other metadata. This information is then used to extract various features about the traffic flow and use the those features to train and test machine learning models. Bro generates various log files but we are mainly interested on the following three log files:
+Each dataset contains a pcap file of the capture, list of infected and normal hosts and Bro IDS logs generated using the pcap files. Bro~\cite{Bro} is a powerful open-source network analysis and intrusion detection tool. It supports various network analysis features traffic inspection, log recording, attack detection, etc. We use Bro to generate various network traffic logs which describe the network flow information and other metadata. This information is then used to extract various features about the traffic flow and use the those features to train and test machine learning models. Bro generates various log files but we are mainly interested on the following three log files:
 
 \begin{enumerate}
 	\item conn.log : It contains information about TCP, UDP and ICMP connections.
@@ -42,7 +42,7 @@ Each dataset contains a pcap file of the capture, list of infected and normal ho
 
 \section{Feature Extraction}
 
-We extracted several features from the Bro logs generated using the network captures. Features related to a single connection is spread over different log files. For example, if we have an SSL connection to some server, the connection features such as source, destination IP addresses, ports, protocols, connection duration, etc. are stored in connection log (conn.log). The SSL features such as cipher used,  server name, etc. are stored in SSL log (ssl.log) and certificate features such as key lengths, common names, validities, subjects, etc. are stored in certificate logs (x509.log). Bro provides interconnection between various logs using unique keys. These unique keys are common for a connection across different logs provided by Bro as shown in Figure \ref{fig:interconnection}. Hence, an SSL connection will have the same unique key to identify the record in connection and SSL logs. SSL has certificate ids to uniquely identify x509 certificates in certificate logs which were used in the SSL session or connection.
+We extracted several features from the Bro logs generated using the network captures. Features related to a single connection is spread over different log files. For example, if we have an SSL connection to some server, the connection features such as source, destination IP addresses, ports, protocols, connection duration, etc. are stored in connection log (conn.log). The SSL features such as cipher used,  server name, etc. are stored in SSL log (ssl.log) and certificate features such as key lengths, common names, validities, subjects, etc. are stored in certificate logs (x509.log). Bro provides interconnection between various logs using unique keys. These unique keys are common for a connection across different logs provided by Bro as shown in Figure~\ref{fig:interconnection}. Hence, an SSL connection will have the same unique key to identify the record in connection and SSL logs. SSL has certificate ids to uniquely identify x509 certificates in certificate logs which were used in the SSL session or connection.
 
 \begin{figure}[htb]
 	\begin{center}
@@ -71,16 +71,16 @@ We extracted several features from the Bro logs generated using the network capt
 
 Bro tracks every incoming and outgoing connection in conn.log. Every record in the conn.log gives us information about a particular connection. Since we are interested only in encrypted network connection, i.e. HTTPS, we only consider connection records that are related to HTTPS connections. Since HTTPS connection uses SSL/TLS to protocols to establish an encrypted link between the client and the server, we only extract connection records which have corresponding entries in the ssl.log file. This can be achieved by going through all the records in ssl.log file and extracting corresponding connection records from the conn.log file.
 
-Since, every SSL/TLS connection requires a server certificate to ensure credibility of the server \cite{RFC1601}, every record in ssl.log contains one or more than one unique certificate ids that the server offered to validate its signing chain. The unique certificate ids represent the certificate record in the x509.log file. We extract only the first certificate id from the ssl.log file since the it corresponds to the end-user certificate. The remaining ids correspond to intermediate and root certificates.
+Since, every SSL/TLS connection requires a server certificate to ensure credibility of the server~\cite{RFC1601}, every record in ssl.log contains one or more than one unique certificate ids that the server offered to validate its signing chain. The unique certificate ids represent the certificate record in the x509.log file. We extract only the first certificate id from the ssl.log file since it corresponds to the end-user certificate. The remaining ids correspond to intermediate and root certificates.
 
 Every connection record can be identified by the 4-tuple of source IP address, destination IP address, destination port and protocol. We use this 4-tuple as key to aggregate network features. Hence every connection which has the same 4-tuple key is grouped together. We then extract features from each group of connection records which were aggregated in the previous step.
 
 \section{Features}
 
-We extracted some features based on \cite{Frantisek2017, AndersonM16} from the connection, SSL and certificate log files from Bro. Table \ref{tab:1} contains connection features extracted from conn.log, Table \ref{tab:2} contains SSL features extracted from ssl.log and Table \ref{tab:3} contains certificate features extracted from x509.log. All the features are computed over a single connection 4-tuple aggregate of records.
+We extracted some features based on~\cite{Frantisek2017, AndersonM16} from the connection, SSL and certificate log files from Bro. Table~\ref{tab:2} contains connection features extracted from conn.log, Table~\ref{tab:3} contains SSL features extracted from ssl.log and Table~\ref{tab:4} contains certificate features extracted from x509.log. All the features are computed over a single connection 4-tuple aggregate of records.
 
 \begin{table}[!htb]
-	\caption{Extracted Features from conn.log\label{tab:2}}
+	\caption{Extracted features from conn.log\label{tab:2}}
 	\begin{center}
 		\begin{tabular}{c|p{0.40\textwidth}|p{0.50\textwidth}}\hline\hline
 			S.No & Feature Name & \multicolumn{1}{l}{Description} \\ \hline
@@ -152,4 +152,4 @@ We extracted some features based on \cite{Frantisek2017, AndersonM16} from the c
 
 \section{Labels}
 
-The dataset from \cite{GarciaGSZ14} and \cite{Erquiaga15} contains IP addresses of infected and normal hosts. We use these IP addresses to label our dataset accordingly. Hence, if a connection record has an infected IP address either as source or destination then the record is classified as malware else it is classified as benign. 
+The dataset from~\cite{GarciaGSZ14} and~\cite{Erquiaga15} contains IP addresses of infected and normal hosts. We use these IP addresses to label our dataset accordingly. Hence, if a connection record has an infected IP address either as source or destination then the record is classified as malware else it is classified as benign. 
