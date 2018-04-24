@@ -9,7 +9,7 @@ Commonly used malicious traffic detection techniques are based on deep packet in
 %%%%% Need to cite a reference for statement such as that above---otherwise it sounds like your opinion
 Such techniques aggregate successive packets that have the same protocol type and same source and destination port and address. They then analyze the contents of these aggregated packets and check for signatures that have been 
 %%%%% Use "benign~\cite{SenSW04}" not "benign \cite{SenSW04}" or "benign ~\cite{SenSW04}."
-previously discovered to classify the source as malicious or benign \cite{SenSW04}.
+previously discovered to classify the source as malicious or benign~\cite{SenSW04}.
 
 %%%%% It's "HyperText", not "Hyper Text". Need to be consistent in usage...
 Unfortunately, due to the widespread use of the HyperText Transfer Protocol Secure (HTTPS), or HTTP over Secure Socket Layer (SSL), such deep packet inspection methods can be inadequate to classify the network traffic. HTTPS is a secure communication protocol and, according to Google, more than 70\% of internet traffic is using HTTPS to communicate over the Internet~\cite{Google17}. 
@@ -21,4 +21,4 @@ Radware~\cite{Radware17}, a leading cyber security and application delivery firm
 
 The main purpose of this research is to analyze whether we can effectively distinguish encrypted malicious network traffic from encrypted benign traffic, without decrypting. This paper is focused on the use of machine learning as a possible solution to this problem. Specifically, we use machine learning to analyze unencrypted network traffic based on a wide variety of unencrypted information, including connection duration, source and destination ports and IP addresses, SSL certificate key lengths, and so on.
 
-The remainder of the paper is organized as follows. Chapter~\ref{chap:related} gives a basic overview of previous work related to the problem of detecting malicious traffic. In Chapter~\ref{chap:dataset}, we discuss the datasets used in our experiments. Chapter~\ref{chap:experiments} gives our experimental results and analysis. Finally, in Chapter~\ref{chap:conclusion}, we give our conclusion and briefly discuss future work.
+The remainder of the paper is organized as follows. Chapter~\ref{chap:related} gives a basic overview of previous work related to the problem of detecting malicious traffic. In Chapter~\ref{chap:dataset}, we discuss the datasets used in our experiments. Chapter~\ref{chap:method}, discusses the proposed methodology. Chapter~\ref{chap:experiments} gives our experimental results and analysis. Finally, in Chapter~\ref{chap:conclusion}, we give our conclusion and briefly discuss future work.
